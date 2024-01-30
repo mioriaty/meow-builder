@@ -14,5 +14,8 @@
   },
   "scss.scannerExclude": ["**/.git"],
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "cSpell.words": ["nextjs"]
+  "cSpell.words": ["nextjs"],
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
 }

@@ -1,3 +1,4 @@
+import { ModeToggle } from '@/components/shared/mode-toggle';
 import { cn } from '@/lib/utils';
 import { UserButton } from '@clerk/nextjs';
 import { User } from '@clerk/nextjs/server';
@@ -35,6 +36,7 @@ export const Navigation: FC<NavigationProps> = ({ user }) => {
           Login
         </Link>
         <UserButton />
+        <ModeToggle />
       </aside>
     </div>
   );
