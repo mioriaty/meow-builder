@@ -1,4 +1,4 @@
-import { PlanEntity } from '@/models/entities/plan.entity';
+import { PlanEntity } from '@/entities/plan.entity';
 
 export const pricingCards: PlanEntity[] = [
   {

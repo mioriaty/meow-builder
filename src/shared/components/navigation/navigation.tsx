@@ -1,5 +1,5 @@
-import { ModeToggle } from '@/components/shared/mode-toggle';
 import { cn } from '@/lib/utils';
+import { ModeToggle } from '@/shared/components/mode-toggle';
 import { UserButton } from '@clerk/nextjs';
 import { User } from '@clerk/nextjs/server';
 import Image from 'next/image';
