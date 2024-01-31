@@ -1,12 +1,16 @@
+import { ClerkProvider } from '@/providers/clerk-provider';
 import { Navigation } from '@/shared/components/navigation';
+
 import React from 'react';
 
 const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="h-full">
-      <Navigation />
-      {children}
-    </main>
+    <ClerkProvider>
+      <main className="h-full">
+        <Navigation />
+        {children}
+      </main>
+    </ClerkProvider>
   );
 };
 
