@@ -2,15 +2,16 @@
 
 import { prismaDb } from '@/lib/prisma/db';
 import { currentUser } from '@clerk/nextjs';
+import { User } from '@prisma/client';
 
 // This function is used to get the details of the current user
-export const getUserDetails = async () => {
+export async function getUserDetails(): Promise<User | null> {
   // Get the current user
   const user = await currentUser();
 
   // If there is no current user, return undefined
   if (!user) {
-    return;
+    return null;
   }
 
   // Query the database for the user with the given email address
@@ -42,4 +43,4 @@ export const getUserDetails = async () => {
 
   // Return the user data
   return userData;
-};
+}

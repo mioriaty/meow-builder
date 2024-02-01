@@ -1,5 +1,6 @@
 import { prismaDb } from '@/lib/prisma/db';
 import { saveActivityLogsNotification } from '@/lib/queries/saveActivityLogsNotification';
+import { UserRole } from '@/shared/constants/role';
 import { clerkClient, currentUser } from '@clerk/nextjs';
 import { User } from '@prisma/client';
 import { redirect } from 'next/navigation';
@@ -45,7 +46,7 @@ export const verifyAndAcceptInvitation = async () => {
     if (userDetails) {
       await clerkClient.users.updateUserMetadata(user.id, {
         privateMetadata: {
-          role: userDetails.role || 'SUBACCOUNT_USER',
+          role: userDetails.role || UserRole.SUB_ACCOUNT_USER,
         },
       });
 

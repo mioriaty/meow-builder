@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "prettier", "eslint-config-prettier"],
+  "extends": ["next", "prettier"],
   "plugins": ["prettier"],
   "rules": {
     // Common
