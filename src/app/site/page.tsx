@@ -5,7 +5,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from '@/shared/ui/card';
 import { CheckIcon } from '@radix-ui/react-icons';
 import clsx from 'clsx';
@@ -46,7 +46,7 @@ export default function Home() {
         <h2 className="text-4xl text-center">Choose what fits you right</h2>
         <p className="text-muted-foreground text-center">
           Our straight forward pricing plans are tailored to meet your needs. If{' '}
-          {"you're"} not <br />
+          {'you\'re'} not <br />
           ready to commit you can get started for free.
         </p>
         <div className="flex justify-center gap-4 flex-wrap mt-6">
@@ -54,13 +54,13 @@ export default function Home() {
             <Card
               key={card.title}
               className={clsx('w-[300px] flex flex-col justify-between ', {
-                'border-2 border-primary': card.title === 'Unlimited Saas',
+                'border-2 border-primary': card.title === 'Unlimited Saas'
               })}
             >
               <CardHeader>
                 <CardTitle
                   className={clsx('', {
-                    'text-muted-foreground': card.title !== 'Unlimited Saas',
+                    'text-muted-foreground': card.title !== 'Unlimited Saas'
                   })}
                 >
                   {card.title}
@@ -85,7 +85,7 @@ export default function Home() {
                   className={clsx(
                     'w-full text-center bg-primary p-2 rounded-md text-white',
                     {
-                      '!bg-muted-foreground': card.title === 'Unlimited Saas',
+                      '!bg-muted-foreground': card.title === 'Unlimited Saas'
                     }
                   )}
                 >

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma-generate": "prisma generate --generator client"
+    "db:generate": "prisma generate --generator client",
+    "db:push": "prisma db push"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.5",

@@ -10,10 +10,18 @@ import {
 } from '@/shared/ui/card';
 import { useToast } from '@/shared/ui/use-toast';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Agency } from '@/generated/client';
+import FileUpload from '@/shared/components/file-upload';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel
+} from '@/shared/ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
@@ -44,21 +52,31 @@ export default function AgencyDetailsForm({ data }: AgencyDetailsFormProps) {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: data?.name,
-      companyEmail: '',
-      companyPhone: '',
-      whiteLabel: true,
-      address: '',
-      city: '',
-      zipCode: '',
-      state: '',
-      country: '',
-      agencyLogo: ''
+      companyEmail: data?.companyEmail,
+      companyPhone: data?.companyPhone,
+      whiteLabel: data?.whiteLabel,
+      address: data?.address,
+      city: data?.city,
+      zipCode: data?.zipCode,
+      state: data?.state,
+      country: data?.country,
+      agencyLogo: data?.agencyLogo
     }
   });
+  const isLoading = form.formState.isSubmitting || form.formState.isLoading;
+
+  useEffect(() => {
+    if (data) {
+      form.reset(data);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
+
+  const handleSubmit = async (values: z.infer<typeof FormSchema>) => {};
 
   return (
     <AlertDialog>
-      <Card className="w-full">
+      <Card className="w-full mt-4">
         <CardHeader>
           <CardTitle>Agency Information</CardTitle>
           <CardDescription>
@@ -67,7 +85,28 @@ export default function AgencyDetailsForm({ data }: AgencyDetailsFormProps) {
           </CardDescription>
         </CardHeader>
 
-        <CardContent></CardContent>
+        <CardContent>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(handleSubmit)}
+              className="space-y-4"
+            >
+              <FormField
+                name="agencyLogo"
+                disabled={isLoading}
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Agency Logo</FormLabel>
+                    <FormControl>
+                      <FileUpload apiEndpoint="agencyLogo" />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </form>
+          </Form>
+        </CardContent>
       </Card>
     </AlertDialog>
   );
