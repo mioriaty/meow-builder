@@ -4,7 +4,7 @@ import { currentUser } from '@clerk/nextjs';
 export const saveActivityLogsNotification = async ({
   agencyId,
   description,
-  subAccountId,
+  subAccountId
 }: {
   description: string;
   agencyId?: string;
@@ -19,11 +19,11 @@ export const saveActivityLogsNotification = async ({
         Agency: {
           SubAccount: {
             some: {
-              id: subAccountId,
-            },
-          },
-        },
-      },
+              id: subAccountId
+            }
+          }
+        }
+      }
     });
     if (response) {
       userData = response;
@@ -31,8 +31,8 @@ export const saveActivityLogsNotification = async ({
   } else {
     userData = await prismaDb.user.findUnique({
       where: {
-        email: authUser.emailAddresses[0].emailAddress,
-      },
+        email: authUser.emailAddresses[0].emailAddress
+      }
     });
   }
 
@@ -49,8 +49,8 @@ export const saveActivityLogsNotification = async ({
 
     const response = await prismaDb.subAccount.findUnique({
       where: {
-        id: subAccountId,
-      },
+        id: subAccountId
+      }
     });
 
     if (response) {
@@ -64,20 +64,20 @@ export const saveActivityLogsNotification = async ({
         notification: `${userData.name} ${description}`,
         User: {
           connect: {
-            id: userData.id,
-          },
+            id: userData.id
+          }
         },
         Agency: {
           connect: {
-            id: foundAgencyId,
-          },
+            id: foundAgencyId
+          }
         },
         SubAccount: {
           connect: {
-            id: subAccountId,
-          },
-        },
-      },
+            id: subAccountId
+          }
+        }
+      }
     });
   } else {
     await prismaDb.notification.create({
@@ -85,15 +85,15 @@ export const saveActivityLogsNotification = async ({
         notification: `${userData.name} ${description}`,
         User: {
           connect: {
-            id: userData.id,
-          },
+            id: userData.id
+          }
         },
         Agency: {
           connect: {
-            id: foundAgencyId,
-          },
-        },
-      },
+            id: foundAgencyId
+          }
+        }
+      }
     });
   }
 };

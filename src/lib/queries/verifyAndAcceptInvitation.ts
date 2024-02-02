@@ -21,8 +21,8 @@ export const verifyAndAcceptInvitation = async () => {
   const invitationExists = await prismaDb.invitation.findUnique({
     where: {
       email: user.emailAddresses[0].emailAddress,
-      status: 'PENDING',
-    },
+      status: 'PENDING'
+    }
   });
 
   if (invitationExists) {
@@ -34,26 +34,26 @@ export const verifyAndAcceptInvitation = async () => {
       name: `${user.firstName} ${user.lastName}`,
       role: invitationExists.role,
       createdAt: new Date(),
-      updatedAt: new Date(),
+      updatedAt: new Date()
     });
 
     await saveActivityLogsNotification({
       agencyId: invitationExists.agencyId,
       description: 'User accepted invitation',
-      subAccountId: undefined,
+      subAccountId: undefined
     });
 
     if (userDetails) {
       await clerkClient.users.updateUserMetadata(user.id, {
         privateMetadata: {
-          role: userDetails.role || UserRole.SUB_ACCOUNT_USER,
-        },
+          role: userDetails.role || UserRole.SUB_ACCOUNT_USER
+        }
       });
 
       await prismaDb.invitation.delete({
         where: {
-          email: userDetails.email,
-        },
+          email: userDetails.email
+        }
       });
 
       return userDetails.agencyId;
@@ -63,8 +63,8 @@ export const verifyAndAcceptInvitation = async () => {
   } else {
     const agency = await prismaDb.user.findUnique({
       where: {
-        email: user.emailAddresses[0].emailAddress,
-      },
+        email: user.emailAddresses[0].emailAddress
+      }
     });
 
     return agency ? agency.agencyId : null;

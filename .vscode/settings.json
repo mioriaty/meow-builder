@@ -17,5 +17,7 @@
   "cSpell.words": ["nextjs"],
   "editor.quickSuggestions": {
     "strings": "on"
-  }
+  },
+  "WillLuke.nextjs.addTypesOnSave": true,
+  "WillLuke.nextjs.hasPrompted": true
 }

@@ -2,10 +2,9 @@
 
 import { prismaDb } from '@/lib/prisma/db';
 import { currentUser } from '@clerk/nextjs';
-import { User } from '@prisma/client';
 
 // This function is used to get the details of the current user
-export async function getUserDetails(): Promise<User | null> {
+export async function getUserDetails() {
   // Get the current user
   const user = await currentUser();
 
@@ -16,10 +15,11 @@ export async function getUserDetails(): Promise<User | null> {
 
   // Query the database for the user with the given email address
   // Include the related Agency, SubAccount, and Permissions data
+
   const userData = await prismaDb.user.findUnique({
     where: {
       // Use the first email address of the user for the query
-      email: user.emailAddresses[0].emailAddress,
+      email: user.emailAddresses[0].emailAddress
     },
     include: {
       // Include the Agency related to the user
@@ -31,14 +31,14 @@ export async function getUserDetails(): Promise<User | null> {
           SubAccount: {
             include: {
               // Include the SidebarOption related to the SubAccount
-              SidebarOption: true,
-            },
-          },
-        },
+              SidebarOption: true
+            }
+          }
+        }
       },
       // Include the Permissions related to the user
-      Permissions: true,
-    },
+      Permissions: true
+    }
   });
 
   // Return the user data

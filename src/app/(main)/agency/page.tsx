@@ -1,12 +1,11 @@
+import { Plan } from '@/generated/client';
 import { getUserDetails } from '@/lib/queries/getUserDetails';
 import { verifyAndAcceptInvitation } from '@/lib/queries/verifyAndAcceptInvitation';
-import { UserRole } from '@/shared/constants/role';
 import { currentUser } from '@clerk/nextjs';
-import { Plan } from '@prisma/client';
 import { redirect } from 'next/navigation';
 
 async function AgencyPage({
-  searchParams,
+  searchParams
 }: {
   searchParams: { plan: Plan; state: string; code: string };
 }) {
@@ -15,18 +14,13 @@ async function AgencyPage({
   // get user details
   const user = await getUserDetails();
 
+
   if (agencyId) {
-    if (
-      user?.role === UserRole.SUB_ACCOUNT_GUEST ||
-      user?.role === UserRole.SUB_ACCOUNT_USER
-    ) {
+    if (user?.role === 'SUBACCOUNT_USER' || user?.role === 'SUBACCOUNT_GUEST') {
       return redirect('/subaccount');
     }
 
-    if (
-      user?.role === UserRole.AGENCY_ADMIN ||
-      user?.role === UserRole.AGENCY_OWNER
-    ) {
+    if (user?.role === 'AGENCY_ADMIN' || user?.role === 'AGENCY_OWNER') {
       if (searchParams.plan) {
         return redirect(
           `/agency/${agencyId}/billing?plan=${searchParams.plan}`

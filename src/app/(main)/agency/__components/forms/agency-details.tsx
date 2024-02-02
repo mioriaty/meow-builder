@@ -6,14 +6,14 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from '@/shared/ui/card';
 import { useToast } from '@/shared/ui/use-toast';
-import { Agency } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { Agency } from '@/generated/client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
@@ -31,7 +31,7 @@ const FormSchema = z.object({
   zipCode: z.string().min(1),
   state: z.string().min(1),
   country: z.string().min(1),
-  agencyLogo: z.string().min(1),
+  agencyLogo: z.string().min(1)
 });
 
 export default function AgencyDetailsForm({ data }: AgencyDetailsFormProps) {
@@ -43,7 +43,7 @@ export default function AgencyDetailsForm({ data }: AgencyDetailsFormProps) {
     mode: 'onChange',
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: data,
+      name: data?.name,
       companyEmail: '',
       companyPhone: '',
       whiteLabel: true,
@@ -52,8 +52,8 @@ export default function AgencyDetailsForm({ data }: AgencyDetailsFormProps) {
       zipCode: '',
       state: '',
       country: '',
-      agencyLogo: '',
-    },
+      agencyLogo: ''
+    }
   });
 
   return (
@@ -67,8 +67,7 @@ export default function AgencyDetailsForm({ data }: AgencyDetailsFormProps) {
           </CardDescription>
         </CardHeader>
 
-        <CardContent>
-        </CardContent>
+        <CardContent></CardContent>
       </Card>
     </AlertDialog>
   );

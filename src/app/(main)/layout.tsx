@@ -2,7 +2,7 @@ import { ClerkProvider } from '@/providers/clerk-provider';
 import React from 'react';
 
 export default function MainLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
