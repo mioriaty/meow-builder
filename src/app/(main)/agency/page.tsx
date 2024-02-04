@@ -1,7 +1,7 @@
-import AgencyDetailsForm from '@/app/(main)/agency/__components/forms/agency-details';
+import AgencyDetailsForm from '@/app/(main)/agency/__components/forms/agency-form-details';
 import { Plan } from '@/generated/client';
-import { getUserDetails } from '@/lib/queries/getUserDetails';
-import { verifyAndAcceptInvitation } from '@/lib/queries/verifyAndAcceptInvitation';
+import { getUserDetails } from '@/lib/queries/user/getUserDetails';
+import { verifyAndAcceptInvitation } from '@/lib/queries/user/verifyAndAcceptInvitation';
 import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 
@@ -14,7 +14,6 @@ async function AgencyPage({
 
   // get user details
   const user = await getUserDetails();
-
 
   if (agencyId) {
     if (user?.role === 'SUBACCOUNT_USER' || user?.role === 'SUBACCOUNT_GUEST') {
@@ -53,7 +52,9 @@ async function AgencyPage({
       <div className="max-w-[850px] border-[1px] p-4 rounded-xl">
         <h1 className="text-4xl"> Create an Agency</h1>
 
-        <AgencyDetailsForm />
+        <AgencyDetailsForm
+          data={{ companyEmail: authUser?.emailAddresses[0].emailAddress }}
+        />
       </div>
     </div>
   );

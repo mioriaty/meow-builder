@@ -1,5 +1,7 @@
+'use server';
+
 import { prismaDb } from '@/lib/prisma/db';
-import { saveActivityLogsNotification } from '@/lib/queries/saveActivityLogsNotification';
+import { saveActivityLogsNotification } from '@/lib/queries/logger/saveActivityLogsNotification';
 import { UserRole } from '@/shared/constants/role';
 import { clerkClient, currentUser } from '@clerk/nextjs';
 import { User } from '@prisma/client';

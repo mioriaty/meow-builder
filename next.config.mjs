@@ -6,10 +6,10 @@ const nextConfig = {
       'utfs.io',
       'img.clerk.com',
       'subdomain',
-      'files.stripe.com',
-    ],
+      'files.stripe.com'
+    ]
   },
-  reactStrictMode: false,
+  reactStrictMode: false
 };
 
 export default nextConfig;

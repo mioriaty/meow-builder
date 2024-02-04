@@ -1,3 +1,5 @@
+'use server';
+
 import { prismaDb } from '@/lib/prisma/db';
 import { currentUser } from '@clerk/nextjs';
 

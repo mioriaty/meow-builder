@@ -15,7 +15,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <section className="h-auto md:h-full w-full pt-36 relative flex items-center justify-center flex-col">
+      <section className="h-auto md:h-full w-full pt-14 relative flex items-center justify-center flex-col">
         <div
           className="
           absolute bottom-0 left-0 right-0 top-0
@@ -23,7 +23,7 @@ export default function Home() {
           bg-[size:4rem_4rem]
           [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_110%)]"
         />
-        <p className="text-center">Run your agency, in one place</p>
+        <p className="text-center text-2xl">Run your agency, in one place</p>
         <div className="bg-gradient-to-r from-primary to-secondary-foreground text-transparent bg-clip-text relative">
           <h1 className="text-9xl font-bold text-center md:text-[300px]">
             Meow
