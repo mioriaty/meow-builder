@@ -27,6 +27,7 @@ import { useForm } from 'react-hook-form';
 import { Agency } from '@/generated/client';
 import { deleteAgency } from '@/lib/queries/agency/deleteAgency';
 import { updateAgencyDetails } from '@/lib/queries/agency/updateAgencyDetails';
+import { upsertAgency } from '@/lib/queries/agency/upsertAgency';
 import { saveActivityLogsNotification } from '@/lib/queries/logger/saveActivityLogsNotification';
 import { upsertUser } from '@/lib/queries/user/upsertUser';
 import FileUpload from '@/shared/components/file-upload';
@@ -44,6 +45,7 @@ import {
 import { Input } from '@/shared/ui/input';
 import { Switch } from '@/shared/ui/switch';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { v4 } from 'uuid';
 import * as z from 'zod';
 
 interface AgencyDetailsFormProps {
@@ -121,9 +123,40 @@ export default function AgencyDetailsForm({ data }: AgencyDetailsFormProps) {
         };
       }
       newUserData = await upsertUser({ role: 'AGENCY_OWNER' });
-      if (!data?.customerId) {
+      if (!data?.id) {
+        const response = await upsertAgency({
+          id: data?.id ? data.id : v4(),
+          address: values.address,
+          agencyLogo: values.agencyLogo,
+          city: values.city,
+          companyPhone: values.companyPhone,
+          country: values.country,
+          name: values.name,
+          state: values.state,
+          whiteLabel: values.whiteLabel,
+          zipCode: values.zipCode,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          companyEmail: values.companyEmail,
+          connectAccountId: '',
+          goal: 5
+        });
+        toast({
+          title: 'Created Agency'
+        });
+
+        if (data?.id || response) {
+          return router.refresh();
+        }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+
+      toast({
+        title: 'Could not create your Agency',
+        variant: 'destructive'
+      });
+    }
   };
 
   const handleDeleteAgency = async () => {

@@ -5301,7 +5301,6 @@ export namespace Prisma {
   export type AgencyMinAggregateOutputType = {
     id: string | null
     connectAccountId: string | null
-    customerId: string | null
     name: string | null
     agencyLogo: string | null
     companyEmail: string | null
@@ -5320,7 +5319,6 @@ export namespace Prisma {
   export type AgencyMaxAggregateOutputType = {
     id: string | null
     connectAccountId: string | null
-    customerId: string | null
     name: string | null
     agencyLogo: string | null
     companyEmail: string | null
@@ -5339,7 +5337,6 @@ export namespace Prisma {
   export type AgencyCountAggregateOutputType = {
     id: number
     connectAccountId: number
-    customerId: number
     name: number
     agencyLogo: number
     companyEmail: number
@@ -5368,7 +5365,6 @@ export namespace Prisma {
   export type AgencyMinAggregateInputType = {
     id?: true
     connectAccountId?: true
-    customerId?: true
     name?: true
     agencyLogo?: true
     companyEmail?: true
@@ -5387,7 +5383,6 @@ export namespace Prisma {
   export type AgencyMaxAggregateInputType = {
     id?: true
     connectAccountId?: true
-    customerId?: true
     name?: true
     agencyLogo?: true
     companyEmail?: true
@@ -5406,7 +5401,6 @@ export namespace Prisma {
   export type AgencyCountAggregateInputType = {
     id?: true
     connectAccountId?: true
-    customerId?: true
     name?: true
     agencyLogo?: true
     companyEmail?: true
@@ -5512,7 +5506,6 @@ export namespace Prisma {
   export type AgencyGroupByOutputType = {
     id: string
     connectAccountId: string | null
-    customerId: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -5550,7 +5543,6 @@ export namespace Prisma {
   export type AgencySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     connectAccountId?: boolean
-    customerId?: boolean
     name?: boolean
     agencyLogo?: boolean
     companyEmail?: boolean
@@ -5577,7 +5569,6 @@ export namespace Prisma {
   export type AgencySelectScalar = {
     id?: boolean
     connectAccountId?: boolean
-    customerId?: boolean
     name?: boolean
     agencyLogo?: boolean
     companyEmail?: boolean
@@ -5619,7 +5610,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       connectAccountId: string | null
-      customerId: string
       name: string
       agencyLogo: string
       companyEmail: string
@@ -6042,7 +6032,6 @@ export namespace Prisma {
   interface AgencyFieldRefs {
     readonly id: FieldRef<"Agency", 'String'>
     readonly connectAccountId: FieldRef<"Agency", 'String'>
-    readonly customerId: FieldRef<"Agency", 'String'>
     readonly name: FieldRef<"Agency", 'String'>
     readonly agencyLogo: FieldRef<"Agency", 'String'>
     readonly companyEmail: FieldRef<"Agency", 'String'>
@@ -26367,7 +26356,6 @@ export namespace Prisma {
   export const AgencyScalarFieldEnum: {
     id: 'id',
     connectAccountId: 'connectAccountId',
-    customerId: 'customerId',
     name: 'name',
     agencyLogo: 'agencyLogo',
     companyEmail: 'companyEmail',
@@ -26904,7 +26892,6 @@ export namespace Prisma {
     NOT?: AgencyWhereInput | AgencyWhereInput[]
     id?: StringFilter<"Agency"> | string
     connectAccountId?: StringNullableFilter<"Agency"> | string | null
-    customerId?: StringFilter<"Agency"> | string
     name?: StringFilter<"Agency"> | string
     agencyLogo?: StringFilter<"Agency"> | string
     companyEmail?: StringFilter<"Agency"> | string
@@ -26930,7 +26917,6 @@ export namespace Prisma {
   export type AgencyOrderByWithRelationInput = {
     id?: SortOrder
     connectAccountId?: SortOrderInput | SortOrder
-    customerId?: SortOrder
     name?: SortOrder
     agencyLogo?: SortOrder
     companyEmail?: SortOrder
@@ -26959,7 +26945,6 @@ export namespace Prisma {
     OR?: AgencyWhereInput[]
     NOT?: AgencyWhereInput | AgencyWhereInput[]
     connectAccountId?: StringNullableFilter<"Agency"> | string | null
-    customerId?: StringFilter<"Agency"> | string
     name?: StringFilter<"Agency"> | string
     agencyLogo?: StringFilter<"Agency"> | string
     companyEmail?: StringFilter<"Agency"> | string
@@ -26985,7 +26970,6 @@ export namespace Prisma {
   export type AgencyOrderByWithAggregationInput = {
     id?: SortOrder
     connectAccountId?: SortOrderInput | SortOrder
-    customerId?: SortOrder
     name?: SortOrder
     agencyLogo?: SortOrder
     companyEmail?: SortOrder
@@ -27012,7 +26996,6 @@ export namespace Prisma {
     NOT?: AgencyScalarWhereWithAggregatesInput | AgencyScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Agency"> | string
     connectAccountId?: StringNullableWithAggregatesFilter<"Agency"> | string | null
-    customerId?: StringWithAggregatesFilter<"Agency"> | string
     name?: StringWithAggregatesFilter<"Agency"> | string
     agencyLogo?: StringWithAggregatesFilter<"Agency"> | string
     companyEmail?: StringWithAggregatesFilter<"Agency"> | string
@@ -28611,7 +28594,6 @@ export namespace Prisma {
   export type AgencyCreateInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -28637,7 +28619,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -28663,7 +28644,6 @@ export namespace Prisma {
   export type AgencyUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -28689,7 +28669,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -28715,7 +28694,6 @@ export namespace Prisma {
   export type AgencyCreateManyInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -28734,7 +28712,6 @@ export namespace Prisma {
   export type AgencyUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -28753,7 +28730,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -30598,7 +30574,6 @@ export namespace Prisma {
   export type AgencyCountOrderByAggregateInput = {
     id?: SortOrder
     connectAccountId?: SortOrder
-    customerId?: SortOrder
     name?: SortOrder
     agencyLogo?: SortOrder
     companyEmail?: SortOrder
@@ -30621,7 +30596,6 @@ export namespace Prisma {
   export type AgencyMaxOrderByAggregateInput = {
     id?: SortOrder
     connectAccountId?: SortOrder
-    customerId?: SortOrder
     name?: SortOrder
     agencyLogo?: SortOrder
     companyEmail?: SortOrder
@@ -30640,7 +30614,6 @@ export namespace Prisma {
   export type AgencyMinOrderByAggregateInput = {
     id?: SortOrder
     connectAccountId?: SortOrder
-    customerId?: SortOrder
     name?: SortOrder
     agencyLogo?: SortOrder
     companyEmail?: SortOrder
@@ -33632,7 +33605,6 @@ export namespace Prisma {
   export type AgencyCreateWithoutUsersInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -33657,7 +33629,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateWithoutUsersInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -33784,7 +33755,6 @@ export namespace Prisma {
   export type AgencyUpdateWithoutUsersInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -33809,7 +33779,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateWithoutUsersInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -34557,7 +34526,6 @@ export namespace Prisma {
   export type AgencyCreateWithoutSubAccountInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -34582,7 +34550,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateWithoutSubAccountInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -34909,7 +34876,6 @@ export namespace Prisma {
   export type AgencyUpdateWithoutSubAccountInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -34934,7 +34900,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateWithoutSubAccountInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37153,7 +37118,6 @@ export namespace Prisma {
   export type AgencyCreateWithoutSidebarOptionInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37178,7 +37142,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateWithoutSidebarOptionInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37219,7 +37182,6 @@ export namespace Prisma {
   export type AgencyUpdateWithoutSidebarOptionInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37244,7 +37206,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateWithoutSidebarOptionInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37393,7 +37354,6 @@ export namespace Prisma {
   export type AgencyCreateWithoutInvitationInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37418,7 +37378,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateWithoutInvitationInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37459,7 +37418,6 @@ export namespace Prisma {
   export type AgencyUpdateWithoutInvitationInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37484,7 +37442,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateWithoutInvitationInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37540,7 +37497,6 @@ export namespace Prisma {
   export type AgencyCreateWithoutNotificationInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37565,7 +37521,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateWithoutNotificationInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37702,7 +37657,6 @@ export namespace Prisma {
   export type AgencyUpdateWithoutNotificationInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37727,7 +37681,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateWithoutNotificationInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37817,7 +37770,6 @@ export namespace Prisma {
   export type AgencyCreateWithoutSubscriptionInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37842,7 +37794,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateWithoutSubscriptionInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37883,7 +37834,6 @@ export namespace Prisma {
   export type AgencyUpdateWithoutSubscriptionInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37908,7 +37858,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateWithoutSubscriptionInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -37933,7 +37882,6 @@ export namespace Prisma {
   export type AgencyCreateWithoutAddOnsInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37958,7 +37906,6 @@ export namespace Prisma {
   export type AgencyUncheckedCreateWithoutAddOnsInput = {
     id?: string
     connectAccountId?: string | null
-    customerId?: string
     name: string
     agencyLogo: string
     companyEmail: string
@@ -37999,7 +37946,6 @@ export namespace Prisma {
   export type AgencyUpdateWithoutAddOnsInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string
@@ -38024,7 +37970,6 @@ export namespace Prisma {
   export type AgencyUncheckedUpdateWithoutAddOnsInput = {
     id?: StringFieldUpdateOperationsInput | string
     connectAccountId?: NullableStringFieldUpdateOperationsInput | string | null
-    customerId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     agencyLogo?: StringFieldUpdateOperationsInput | string
     companyEmail?: StringFieldUpdateOperationsInput | string

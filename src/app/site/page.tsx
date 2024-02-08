@@ -1,4 +1,4 @@
-import { pricingCards } from '@/lib/contstant';
+import { pricingCards } from '@/shared/constants/pricing-cards';
 import {
   Card,
   CardContent,

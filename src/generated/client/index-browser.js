@@ -128,7 +128,6 @@ exports.Prisma.PermissionsScalarFieldEnum = {
 exports.Prisma.AgencyScalarFieldEnum = {
   id: 'id',
   connectAccountId: 'connectAccountId',
-  customerId: 'customerId',
   name: 'name',
   agencyLogo: 'agencyLogo',
   companyEmail: 'companyEmail',

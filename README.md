@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Meow Builder
 
-First, run the development server:
+## Folder Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The <strong>layers</strong> are standardized across all projects and vertically arranged. Modules on one layer can only interact with modules from the layers strictly below. There are currently seven of them (bottom to top):
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img src="https://feature-sliced.design/assets/images/visual_schema-e826067f573946613dcdc76e3f585082.jpg" />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. ```shared``` --- reusable functionally, detached from the specifics of the project/business. (e.g. lib, ui, API...)
+2. ```entities``` --- business entities. (e.g. User, Product, ...)
+3. ```features``` --- user interactions, actions that bring business value to the user. (e.g. SendComment, AddToCart)
+4. ```widgets``` --- compositional layer to combine entities and features into meaningful blocks. (e.g. IssueList, UserProfile)
+5. ```pages``` --- compositional layer to construct full pages from entities, features and widgets.
+6. ```app``` --- app-wide settings, styles and providers.
+7. ```generated``` -- data type from prisma db. (e.g. User, Agency, ...)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The there are <strong>slices</strong>, which partition the code by business domain. This makes your codebase easy to navigate by keeping logically related modules close together. Slices cannot use other slices on the same layer, and that helps with high cohesion and low coupling.
 
-## Learn More
+Each slice, in turn, consists of <strong>segments</strong>. These are tiny modules that are meant to help with separating code within a slice by its technical purpose. The most common segments are ui, model (store, actions), api and lib (utils/hooks), but you can omit some or add more, as you see fit.
 
-To learn more about Next.js, take a look at the following resources:
+## Example
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Let's consider a social network application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- ```app/``` contains setup of routing, store and global styles.
+- ```pages/``` contains the route components for each page in the app, mostly composition, hardly logic.
 
-## Deploy on Vercel
+Within that application, let's consider a post card in a news feed.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- ```widgets/``` contains the "assembled" post card, with content and interactive buttons that are wired up to the relevant calls on the back-end.
+- ```features/``` contains the interactive of the card (e.g. like button) and the logic of processing those interactions.
+- ```entities/``` contains the shell of the card with slots for content and the interactive elements. The tile representing the post author is also here, but in a different slice.

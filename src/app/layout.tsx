@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/providers/theme-provider';
+import { ThemeProvider } from '@/app/_providers/theme-provider';
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
@@ -7,11 +7,11 @@ const font = DM_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Meow 😺',
-  description: 'Web builder for agencies.',
+  description: 'Web builder for agencies.'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
