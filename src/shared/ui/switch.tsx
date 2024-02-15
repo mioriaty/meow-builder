@@ -3,7 +3,7 @@
 import * as SwitchPrimitives from '@radix-ui/react-switch'
 import * as React from 'react'
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/tailwind-merge'
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
@@ -27,3 +27,4 @@ const Switch = React.forwardRef<
 Switch.displayName = SwitchPrimitives.Root.displayName
 
 export { Switch }
+
